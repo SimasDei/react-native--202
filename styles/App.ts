@@ -7,6 +7,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  headerStyle: {
+    backgroundColor: '#373142',
+  },
+  headerTitleStyle: {
+    color: '#fff',
+  },
 });
 
 export default styles;
