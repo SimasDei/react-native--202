@@ -1,14 +1,22 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, Button } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 
 import appStyles from './styles/App';
+import navStyles from './styles/App';
 
-const App = () => {
+import Post from './screens/Post';
+
+const App = ({ navigation }) => {
+  const onPressHandler = () => {
+    navigation.navigate('Post');
+  };
+
   return (
     <View style={appStyles.container}>
       <Text>Ahoy sailor o/ ⛵</Text>
+      <Button onPress={onPressHandler} title={'Go To Post'} />
     </View>
   );
 };
@@ -18,8 +26,14 @@ const AppNavigator = createStackNavigator({
     screen: App,
     navigationOptions: {
       title: 'Home',
-      headerStyle: appStyles.headerStyle,
-      headerTitleStyle: appStyles.headerTitleStyle,
+      ...navStyles,
+    },
+  },
+  Post: {
+    screen: Post,
+    navigationOptions: {
+      title: 'Post',
+      ...navStyles,
     },
   },
 });
